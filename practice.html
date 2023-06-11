@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>인생네컷 응용 - 코딩네컷</title>
+    <title>인생 다섯 컷 - 훈련 이력</title>
     <style>
-      /* 이서윤체 폰트 적용을 위한 코드 */
       @font-face {
         font-family: "LeeSeoyun";
         src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
@@ -26,7 +25,7 @@
 
       /*  */
       .container {
-        width: 390px;
+        width: 480px;
         background-color: #ff9d73;
         height: 100%;
       }
@@ -38,7 +37,7 @@
       .photo-frame {
         background-color: white;
         margin: 15px 20px;
-        height: 200px;
+        height: 300px;
         background-size: cover;
         position: relative;
         cursor: pointer;
@@ -52,39 +51,43 @@
       }
 
       .f-title {
-        font-size: 25px;
+        font-size: 35px;
         font-weight: 900;
         color: white;
       }
       .f-date {
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 500;
         color: white;
       }
 
       #image1 {
-        background-image: url("./img1.png");
+        background-image: url("./1.png");
       }
 
       #image2 {
-        background-image: url("./img2.png");
+        background-image: url("./2.png");
       }
 
       #image3 {
-        background-image: url("./img3.png");
+        background-image: url("./3.png");
       }
 
       #image4 {
-        background-image: url("./img4.jpeg");
+        background-image: url("./4.png");
+      }
+
+      #image5 {
+        background-image: url("./5.png");
       }
 
       .photo-description {
-        color: white;
-        background-color: black;
+        color: black;
+        background-color: rgb(211, 255, 109);
         width: fit-content;
-        padding: 0 20px;
-        margin-bottom: 10px;
-        border-radius: 10px;
+        padding: 0 30px;
+        margin-bottom: 20px;
+        border-radius: 20px;
         position: absolute;
         bottom: 0;
         transform: translate(-50%);
@@ -92,14 +95,6 @@
         opacity: 0;
       }
 
-			.video {
-        width: 100%;
-        height: 100%;
-      }
-
-/* opacity : 투명도를 의미해요! opacity는 1에 가까워 질 수록 불투명하다. 즉 다 보인다. 
-opacity : 투명도를 의미해요! opacity는 0에 가까워 질 수록 투명하다. 즉 안보인다. 
-transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라는 의미에요 */
 
       .showText {
         opacity: 0;
@@ -111,9 +106,8 @@ transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 주라�
       }
     </style>
     <script>
-      // 텍스트가 보여지는 기능
-// 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
-// 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+
+
 function showText(number) {
   if (number === 1) {
     document.querySelector("#desc1").classList.remove("hideText");
@@ -121,15 +115,19 @@ function showText(number) {
   } else if (number === 2) {
     document.querySelector("#desc2").classList.remove("hideText");
     document.querySelector("#desc2").classList.add("showText");
-  } else {
+  } else if  (number === 3){
     document.querySelector("#desc3").classList.remove("hideText");
     document.querySelector("#desc3").classList.add("showText");
+  } else if  (number === 4){
+    document.querySelector("#desc4").classList.remove("hideText");
+    document.querySelector("#desc4").classList.add("showText");
+  }
+  else {
+    document.querySelector("#desc5").classList.remove("hideText");
+    document.querySelector("#desc5").classList.add("showText");
   }
 }
 
-// 텍스트가 감춰지는 기능
-// 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
-// 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
 function hideText(number) {
   if (number === 1) {
     document.querySelector("#desc1").classList.remove("showText");
@@ -137,16 +135,21 @@ function hideText(number) {
   } else if (number === 2) {
     document.querySelector("#desc2").classList.remove("showText");
     document.querySelector("#desc2").classList.add("hideText");
-  } else {
+  } else if (number === 3) {
     document.querySelector("#desc3").classList.remove("showText");
     document.querySelector("#desc3").classList.add("hideText");
+  } else if (number === 4) {
+    document.querySelector("#desc4").classList.remove("showText");
+    document.querySelector("#desc4").classList.add("hideText");
+  } else  {
+    document.querySelector("#desc5").classList.remove("showText");
+    document.querySelector("#desc5").classList.add("hideText");
   }
 }
 
-// 클릭 기능
-// 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+
 function alertText(number) {
-	alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+	alert(`${number}프론트엔드 개발자가 되기 위해 기본적인 그래픽디자인 실무와 html5, css3, 자바스크립트, 제이쿼리 과정을 수료했습니다!`);
 }
     </script>
   </head>
@@ -158,7 +161,7 @@ function alertText(number) {
             onmouseout="hideText(1)"
             onclick="alertText(1)">
           <span id="desc1" class="photo-description">
-            우리 작년 1월에 동해 갔을 때 :)
+            일러스트 & 포토샵 2020.12.27~2021.02.28
           </span>
         </div>
         <div id="image2" class="photo-frame"
@@ -166,7 +169,7 @@ function alertText(number) {
             onmouseout="hideText(2)"
             onclick="alertText(2)">
           <span id="desc2" class="photo-description">
-            친구랑 싸웠을 때 위로해준 너
+            웹표준, html5, css3 2020.11.26~2021.02.25
           </span>
         </div>
         <div id="image3" class="photo-frame"
@@ -174,20 +177,30 @@ function alertText(number) {
             onmouseout="hideText(3)"
             onclick="alertText(3)">
           <span id="desc3" class="photo-description">
-            작년 생일 파티
+            자바스크립트 & 제이쿼리 2021.05.20~2021.06.15
           </span>
         </div>
-        <div class="photo-frame">
-          <iframe
-            src="https://www.youtube.com/embed/TWz1btekxfs"
-            frameborder="0"
-            class="video"
-          ></iframe>
-        </div>
+        <div id="image4" class="photo-frame"
+          onmouseover="showText(4)"
+          onmouseout="hideText(4)"
+          onclick="alertText(4)">
+        <span id="desc4" class="photo-description">
+          웹개발 종합 2022.10.10~2022.11.13
+        </span>
       </div>
+      <div id="image5" class="photo-frame"
+        onmouseover="showText(5)"
+        onmouseout="hideText(5)"
+        onclick="alertText(5)">
+      <span id="desc5" class="photo-description">
+        앱개발 종합 2023.02.27~2023.04.02
+      </span>
+      </div>
+    </div>
       <div class="footer">
-        <p class="f-title">Happy Coding Time</p>
-        <p class="f-date">2023.03.01</p>
+        <p class="f-title">훈련 이력</p>
+        <p>프론트엔드 개발자가 되기 위해 기본적인 그래픽디자인 실무와 html5, css3, 자바스크립트, 제이쿼리 과정을 수료했습니다!</p>
+        <p class="f-date">업데이트: 2023.06.11</p>
       </div>
     </div>
   </body>
